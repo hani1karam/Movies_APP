@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIKit
 import Kingfisher
 
 class CollectionViewCell: UICollectionViewCell {
@@ -19,15 +18,18 @@ class CollectionViewCell: UICollectionViewCell {
     func configure(movies: Result) {
         
         DispatchQueue.main.async {
+            let poster_base_url = "https://image.tmdb.org/t/p/w500"
             if let img = movies.posterPath{
-                self.img.setImage(imageUrl: img)
+                let posturl = URL(string: poster_base_url +  img )!
+
+                self.img.setImage(imageUrl: posturl)
             }
         }
     }
 }
 extension UIImageView {
-    func setImage(imageUrl: String){
+    func setImage(imageUrl: URL){
         self.kf.indicatorType = .activity
-        self.kf.setImage(with: URL(string:imageUrl), placeholder: nil, options: [.transition(.fade(0.7))],   completionHandler: nil)
+        self.kf.setImage(with: imageUrl, placeholder: nil, options: [.transition(.fade(0.7))],   completionHandler: nil)
     }
 }

@@ -8,4 +8,5 @@ target 'Movies_APP' do
   # Pods for Movies_APP
 pod 'Alamofire'
 pod 'Kingfisher'
+
 end

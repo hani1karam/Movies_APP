@@ -7,7 +7,6 @@
 //
 
 import UIKit
-
 class DetailsVC: UIViewController {
     @IBOutlet weak var img: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -28,6 +27,7 @@ class DetailsVC: UIViewController {
             self.name.text = movies.name
             self.rate.text = "Rate: \(movies.rate ?? 0)"
             self.img.setImage(imageUrl: movies.image!)
+            
         }
         
     }
